@@ -6,7 +6,7 @@
 }
 
 * { box-sizing: border-box; }
-body { width: 340px; margin: 0; background: radial-gradient(circle at 92% 0, rgba(59, 107, 255, .23), transparent 37%), radial-gradient(circle at 8% 100%, rgba(176, 76, 255, .2), transparent 42%), #0d0d12; }
+body { width: 340px; margin: 0; overflow-x: hidden; background: radial-gradient(circle at 92% 0, rgba(59, 107, 255, .23), transparent 37%), radial-gradient(circle at 8% 100%, rgba(176, 76, 255, .2), transparent 42%), #0d0d12; }
 main { position: relative; overflow: hidden; padding: 17px; border: 1px solid rgba(176, 76, 255, .28); }
 main::after { content: ""; position: absolute; top: 0; right: 0; width: 72px; height: 2px; background: linear-gradient(90deg, transparent, #b04cff, #3b6bff); box-shadow: 0 0 15px rgba(176, 76, 255, .7); }
 header { display: flex; align-items: center; gap: 11px; }
@@ -25,4 +25,5 @@ button span { font-size: 15px; }
 button strong { font-size: 12px; }
 .status { min-height: 34px; margin-top: 12px; padding: 9px 10px; border: 1px solid #2d3040; border-radius: 7px; color: #9293a4; background: rgba(17, 18, 27, .88); box-shadow: inset 2px 0 0 rgba(176, 76, 255, .35); font-size: 10px; line-height: 1.4; }
 .status.success { border-color: rgba(65, 201, 149, .38); color: #8fe0c1; background: rgba(65, 201, 149, .07); }
+.status.fallback { border-color: rgba(255, 193, 87, .42); color: #ffd182; background: rgba(255, 193, 87, .07); }
 .status.error { border-color: rgba(255, 107, 114, .4); color: #ff9da2; background: rgba(255, 107, 114, .07); }

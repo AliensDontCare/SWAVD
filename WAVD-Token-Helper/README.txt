@@ -10,8 +10,10 @@ Installation:
 Usage:
 1. Open https://suno.com and sign in.
 2. Open the extension popup.
-3. Click Copy Suno token.
-4. Paste the token into WAVD Desktop when requested.
+3. Start WAVD Desktop.
+4. Click Send token to WAVD.
+5. WAVD Desktop saves the token securely and resumes a waiting operation automatically.
 
-The extension does not save or transmit the token. It only copies the current
-Suno session token to the clipboard after you press the button.
+The extension sends the token only to WAVD Desktop on 127.0.0.1. Nothing is
+sent to an external server. If WAVD Desktop is not running, the token is copied
+to the clipboard as a fallback.

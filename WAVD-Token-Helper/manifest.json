@@ -1,13 +1,16 @@
 {
   "manifest_version": 3,
   "name": "WAVD Suno Token Helper",
-  "description": "Copies the current Suno session token for use in WAVD Desktop.",
-  "version": "1.0.0",
+  "description": "Sends the current Suno session token directly to WAVD Desktop, with clipboard fallback.",
+  "version": "1.1.0",
   "minimum_chrome_version": "95",
   "permissions": [
     "activeTab",
     "scripting",
     "clipboardWrite"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:18973/*"
   ],
   "icons": {
     "16": "assets/alien-mascot.png",
@@ -16,7 +19,7 @@
     "128": "assets/alien-mascot.png"
   },
   "action": {
-    "default_title": "Copy Suno token",
+    "default_title": "Send Suno token to WAVD",
     "default_icon": "assets/alien-mascot.png",
     "default_popup": "popup.html"
   }

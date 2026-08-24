@@ -1,5 +1,6 @@
 const button = document.getElementById("copy-token");
 const status = document.getElementById("status");
+const WAVD_TOKEN_BRIDGE = "http://127.0.0.1:18973/v1/token";
 
 function setStatus(message, type = "") {
   status.textContent = message;
@@ -46,6 +47,29 @@ async function readSunoToken(tabId) {
   return injection?.result || null;
 }
 
+async function sendTokenToWavd(token) {
+  let response;
+  try {
+    response = await fetch(WAVD_TOKEN_BRIDGE, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-WAVD-Token-Helper": "1",
+      },
+      body: JSON.stringify({ token }),
+    });
+  } catch {
+    return null;
+  }
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const error = new Error(payload.error || `WAVD Desktop rejected the token (${response.status}).`);
+    error.bridgeReached = true;
+    throw error;
+  }
+  return payload;
+}
+
 button.addEventListener("click", async () => {
   button.disabled = true;
   setStatus("Scanning Suno life signs…");
@@ -58,10 +82,15 @@ button.addEventListener("click", async () => {
     if (!token) {
       throw new Error("No Suno life signs detected. Refresh the page and sign in again.");
     }
-    await navigator.clipboard.writeText(token);
-    setStatus(`Token teleported.${tokenExpiryLabel(token)} Paste it into WAVD Desktop before the portal closes.`, "success");
+    const result = await sendTokenToWavd(token);
+    if (result) {
+      setStatus(`Token beamed directly into WAVD Desktop. ${result.resumed ? "Experiment resumed." : "Stored securely for the next experiment."}${tokenExpiryLabel(token)}`, "success");
+    } else {
+      await navigator.clipboard.writeText(token);
+      setStatus(`WAVD Desktop is not listening. Token copied instead — primitive, but effective.${tokenExpiryLabel(token)}`, "fallback");
+    }
   } catch (error) {
-    setStatus(error?.message || "The token teleporter coughed up smoke. Could not copy the token.", "error");
+    setStatus(error?.message || "The token teleporter coughed up smoke. Could not transfer the token.", "error");
   } finally {
     button.disabled = false;
   }
