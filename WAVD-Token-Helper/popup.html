@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WAVD Token Helper</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mark"><img src="assets/alien-mascot.png" alt=""></span>
+        <div>
+          <strong>WAVD Token Teleporter</strong>
+          <small>Definitely legitimate alien technology</small>
+        </div>
+      </header>
+
+      <div class="lab-stamp"><span>SPECIMEN TKN-01</span><b>CLIPBOARD TRANSFER</b></div>
+
+      <p>Open a signed-in Suno page and teleport its current session token into your clipboard.</p>
+
+      <button type="button" id="copy-token">
+        <span>⧉</span>
+        <strong>Copy Suno token</strong>
+      </button>
+
+      <div class="status" id="status" aria-live="polite">
+        No tokens are harmed until you press the button.
+      </div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
