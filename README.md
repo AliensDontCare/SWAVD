@@ -3,6 +3,7 @@ And use exe from releases for Teleport you data
 
 <img width="1873" height="901" alt="image" src="https://github.com/user-attachments/assets/7c308049-5e1f-467c-a6df-8a19bcf2105a" />
 
+<img width="999" height="298" alt="image" src="https://github.com/user-attachments/assets/8cd5fb7b-3ddd-49fe-8405-89ae7beb336c" />
 
 <img width="1002" height="724" alt="image" src="https://github.com/user-attachments/assets/287b2c9f-6d7b-4fd4-9dd7-124697b6e91c" />
 
